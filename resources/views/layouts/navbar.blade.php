@@ -7,16 +7,16 @@
         </a>
         <!-- Desktop Links -->
         <div class="hidden md:flex items-center gap-6">
-            <a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#fitur">Fitur</a>
+            <a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#fitur">Tools</a>
             <a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#cara-kerja">Cara Kerja</a>
-            <a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#harga">Harga</a>
+            {{-- <a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#harga">Harga</a> --}}
             <a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#faq">FAQ</a>
         </div>
         <!-- Actions -->
-        <div class="hidden md:flex items-center gap-4">
+        {{-- <div class="hidden md:flex items-center gap-4">
             <button class="text-primary font-label-md text-label-md px-4 py-2 hover:bg-surface-container rounded-lg transition-colors">Log In</button>
             <button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 rounded-lg hover:bg-primary-container transition-colors shadow-sm">Get Started for Free</button>
-        </div>
+        </div> --}}
         <!-- Mobile Menu Toggle -->
         <button aria-label="Menu" class="md:hidden text-on-surface">
             <span class="material-symbols-outlined" data-icon="menu">menu</span>

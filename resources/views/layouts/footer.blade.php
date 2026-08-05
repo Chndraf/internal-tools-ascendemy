@@ -12,9 +12,9 @@
         <div>
             <h4 class="font-label-md text-label-md text-on-surface font-bold mb-4 uppercase tracking-wider">Product</h4>
             <ul class="space-y-3">
-                <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Fitur</a></li>
-                <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Harga</a></li>
-                <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">API</a></li>
+                <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Tools</a></li>
+                <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Cara Kerja</a></li>
+                <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">FAQ</a></li>
             </ul>
         </div>
         <div>

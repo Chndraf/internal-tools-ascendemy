@@ -26,11 +26,22 @@
 <section class="py-16 px-4 md:px-10 bg-surface-container-lowest">
     <div class="max-w-4xl mx-auto">
         <div class="bg-surface rounded-xl shadow-lg p-6 md:p-10 border border-surface-variant">
-            <div class="flex items-center justify-between mb-8 pb-4 border-b border-surface-variant">
+            <div class="flex items-center justify-between mb-4 pb-4 border-b border-surface-variant">
                 <h2 class="text-2xl font-headline-md text-on-surface">Mulai Ekstraksi</h2>
-                <span class="bg-tertiary-fixed text-on-tertiary-fixed text-xs px-3 py-1 rounded-full">Mode Demo</span>
+                {{-- <span class="bg-tertiary-fixed text-on-tertiary-fixed text-xs px-3 py-1 rounded-full">Mode Demo</span> --}}
             </div>
             
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex items-center bg-surface-container-low border border-surface-variant rounded-full p-1 shadow-sm">
+                    <button class="px-6 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-all duration-200">
+                        Keyword
+                    </button>
+                    <button class="px-6 py-1.5 rounded-full bg-transparent text-on-surface-variant font-label-md text-label-md hover:text-primary hover:bg-surface-container transition-all duration-200">
+                        Url
+                    </button>
+                </div>
+            </div>
+
             <!-- Form Controls -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <!-- Dropdown 1: Country -->
@@ -144,7 +155,7 @@
 </section>
 
 <!-- CTA Section -->
-<section class="bg-primary py-20 px-4 md:px-10 text-center relative overflow-hidden">
+{{-- <section class="bg-primary py-20 px-4 md:px-10 text-center relative overflow-hidden">
     <div class="max-w-3xl mx-auto relative z-10">
         <h2 class="text-3xl font-headline-lg text-on-primary mb-6">
             Mulai kumpulkan email jurnal Anda sekarang
@@ -156,5 +167,5 @@
             Buat Akun Gratis
         </button>
     </div>
-</section>
+</section> --}}
 @endsection
