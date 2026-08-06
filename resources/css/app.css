@@ -12,27 +12,26 @@
     --color-surface: #f8f9fa;
     --color-on-surface: #191c1d;
     --color-surface-variant: #e1e3e4;
-    --color-on-surface-variant: #5b403e;
+    --color-on-surface-variant: #5a6268;
     --color-surface-container: #edeeef;
     --color-surface-container-low: #f3f4f5;
     --color-surface-container-lowest: #ffffff;
-  
-    --color-primary: #b81120;
+
+    --color-primary: #f27b27;
     --color-on-primary: #ffffff;
-    --color-primary-container: #dc3135;
-    --color-primary-fixed: #ffdad7;
-    --color-primary-fixed-dim: #ffb3ae;
-  
-    --color-secondary: #4b41e1;
+    --color-primary-container: #de6716;
+    --color-primary-fixed: #feede1;
+    --color-primary-fixed-dim: #fcd1b0;
+
+    --color-secondary: #3178c6;
     --color-on-secondary: #ffffff;
-    --color-secondary-container: #645efb;
-    --color-secondary-fixed: #e2dfff;
-  
-    --color-tertiary: #555c6e;
-    --color-tertiary-fixed: #dce2f7;
-    --color-on-tertiary-fixed: #141b2b;
-  
-    --color-outline-variant: #e4bdba;
+    --color-secondary-container: #2663a6;
+    --color-secondary-fixed: #eaf2fa;
+
+    --color-tertiary: #4a5568;
+    --color-tertiary-fixed: #e2e8f0;
+    --color-on-tertiary-fixed: #1a202c;
+    --color-outline-variant: #d1d5db;
 
     --font-headline-md: "Plus Jakarta Sans", sans-serif;
     --font-headline-lg: "Plus Jakarta Sans", sans-serif;
@@ -43,4 +42,10 @@
     --spacing-container-max: 1280px;
     --spacing-gutter: 24px;
     --spacing-base: 8px;
+
+    /* animasi */
+    --animate-shimmer: shimmer 1.5s infinite;
+    @keyframes shimmer {
+        100% { transform: translateX(100%); }
+    }
 }

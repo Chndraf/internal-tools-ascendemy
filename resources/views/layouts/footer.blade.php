@@ -1,5 +1,5 @@
 <footer class="bg-surface-container-low dark:bg-surface-container-low">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-16 max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop py-16 max-w-container-max mx-auto">
         <!-- Brand Column -->
         <div class="col-span-1 sm:col-span-2 md:col-span-1 mb-8 md:mb-0">
             <a class="flex items-center gap-2 mb-4" href="#">
@@ -13,18 +13,18 @@
             <h4 class="font-label-md text-label-md text-on-surface font-bold mb-4 uppercase tracking-wider">Product</h4>
             <ul class="space-y-3">
                 <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Tools</a></li>
-                <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Cara Kerja</a></li>
+                <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#cara-kerja">Cara Kerja</a></li>
                 <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">FAQ</a></li>
             </ul>
         </div>
-        <div>
+        {{-- <div>
             <h4 class="font-label-md text-label-md text-on-surface font-bold mb-4 uppercase tracking-wider">Company</h4>
             <ul class="space-y-3">
                 <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Tentang Kami</a></li>
                 <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Kontak</a></li>
                 <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Blog</a></li>
             </ul>
-        </div>
+        </div> --}}
         <div>
             <h4 class="font-label-md text-label-md text-on-surface font-bold mb-4 uppercase tracking-wider">Legal</h4>
             <ul class="space-y-3">
