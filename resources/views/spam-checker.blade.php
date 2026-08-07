@@ -75,33 +75,39 @@
     </div>
 </section>
 
-<!-- Features Section -->
-<section class="py-20 px-4 md:px-10 max-w-7xl mx-auto" id="fitur">
+<!-- Cara Kerja Section -->
+<section class="py-20 px-4 md:px-10 max-w-7xl mx-auto" id="cara-kerja">
     <div class="text-center mb-16">
-        <h2 class="text-3xl font-headline-lg text-on-surface mb-4">Kenapa Cek Spam Itu Penting?</h2>
-        <p class="text-base text-on-surface-variant max-w-2xl mx-auto">Tingkatkan metrik open rate dan pastikan email marketing Anda tiba dengan selamat di kotak masuk audiens.</p>
+        <h2 class="text-3xl font-bold text-on-surface mb-4">Cara Kerja Spam Checker</h2>
+        <p class="text-base text-on-surface-variant max-w-2xl mx-auto">Tiga langkah mudah untuk memastikan email Anda bersih dari kata-kata pemicu spam sebelum dikirim ke penerima.</p>
     </div>
+    
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-surface p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
+        <!-- Card 1 -->
+        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
             <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-6">
-                <span class="material-symbols-outlined text-primary" data-icon="inbox">inbox</span>
+                <span class="material-symbols-outlined text-primary" data-icon="edit_document">edit_document</span>
             </div>
-            <h3 class="text-xl font-headline-md text-on-surface mb-3">Hindari Folder Spam</h3>
-            <p class="text-sm text-on-surface-variant">Deteksi kata-kata yang sering ditandai oleh filter spam Google dan penyedia email lainnya.</p>
+            <h3 class="text-xl font-bold text-on-surface mb-3">1. Masukkan Teks Email</h3>
+            <p class="text-sm text-on-surface-variant">Ketik atau tempelkan (paste) subjek dan isi draf email yang ingin Anda periksa ke dalam kolom yang tersedia.</p>
         </div>
-        <div class="bg-surface p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
+        
+        <!-- Card 2 -->
+        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
             <div class="w-12 h-12 bg-secondary-fixed rounded-lg flex items-center justify-center mb-6">
-                <span class="material-symbols-outlined text-secondary" data-icon="speed">speed</span>
+                <span class="material-symbols-outlined text-secondary" data-icon="troubleshoot">troubleshoot</span>
             </div>
-            <h3 class="text-xl font-headline-md text-on-surface mb-3">Analisis Real-time</h3>
-            <p class="text-sm text-on-surface-variant">Dapatkan skor dan *feedback* instan tanpa harus memuat ulang halaman.</p>
+            <h3 class="text-xl font-bold text-on-surface mb-3">2. Analisis Otomatis</h3>
+            <p class="text-sm text-on-surface-variant">Klik tombol periksa, dan sistem akan langsung memindai setiap kata yang berpotensi masuk ke folder spam.</p>
         </div>
-        <div class="bg-surface p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
+        
+        <!-- Card 3 -->
+        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
             <div class="w-12 h-12 bg-tertiary-fixed rounded-lg flex items-center justify-center mb-6">
-                <span class="material-symbols-outlined text-tertiary" data-icon="draw">draw</span>
+                <span class="material-symbols-outlined text-tertiary" data-icon="task_alt">task_alt</span>
             </div>
-            <h3 class="text-xl font-headline-md text-on-surface mb-3">Tingkatkan Copywriting</h3>
-            <p class="text-sm text-on-surface-variant">Gunakan saran kata-kata yang lebih aman dan profesional untuk meningkatkan konversi.</p>
+            <h3 class="text-xl font-bold text-on-surface mb-3">3. Evaluasi & Perbaiki</h3>
+            <p class="text-sm text-on-surface-variant">Lihat skor akhir email Anda. Hapus atau ganti kata-kata yang ditandai merah agar email lebih aman dan profesional.</p>
         </div>
     </div>
 </section>

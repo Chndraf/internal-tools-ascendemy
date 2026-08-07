@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SpamCheckerController;
+use App\Http\Controllers\AiEmailController;
 
 // 1. Direktori Tools sekarang menjadi Halaman Utama (Home)
 Route::get('/', function () {
@@ -18,3 +19,10 @@ Route::get('/spam-checker', function () {
 })->name('spam-checker');
 
 Route::post('/spam-checker/analyze', [SpamCheckerController::class, 'analyze'])->name('spam-checker.analyze');
+
+// 4. Halaman AI Email Generator
+Route::get('/ai-email-writer', function () {
+    return view('ai-email-writer');
+})->name('ai-email-writer');
+
+Route::post('/ai-email-writer/generate', [AiEmailController::class, 'generate'])->name('ai-email-writer.generate');

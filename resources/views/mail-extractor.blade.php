@@ -153,22 +153,22 @@
             <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-6">
                 <span class="material-symbols-outlined text-primary" data-icon="filter_list">filter_list</span>
             </div>
-            <h3 class="text-xl font-headline-md text-on-surface mb-3">1. Pilih Filter</h3>
-            <p class="text-sm text-on-surface-variant">Pilih negara dan keyword dari daftar yang tersedia untuk menargetkan jurnal yang tepat</p>
+            <h3 class="text-xl font-headline-md text-on-surface mb-3">1. Pilih Metode</h3>
+            <p class="text-sm text-on-surface-variant">Anda dapat memilih menggunakan keyword dari database yang kami sediakan atau menggunakan URL yang ada anda dari internet</p>
         </div>
         <div class="bg-surface p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
             <div class="w-12 h-12 bg-secondary-fixed rounded-lg flex items-center justify-center mb-6">
                 <span class="material-symbols-outlined text-secondary" data-icon="auto_fix_high">auto_fix_high</span>
             </div>
             <h3 class="text-xl font-headline-md text-on-surface mb-3">2. Auto-Extract</h3>
-            <p class="text-sm text-on-surface-variant">Sistem kami secara otomatis memfilter dan mengekstrak email jurnal yang coock dengan kriteria anda.</p>
+            <p class="text-sm text-on-surface-variant">Sistem kami secara otomatis memfilter dan mengekstrak email dengan kriteria yang anda butuhkan.</p>
         </div>
         <div class="bg-surface p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
             <div class="w-12 h-12 bg-tertiary-fixed rounded-lg flex items-center justify-center mb-6">
                 <span class="material-symbols-outlined text-tertiary" data-icon="download">download</span>
             </div>
             <h3 class="text-xl font-headline-md text-on-surface mb-3">3. Download </h3>
-            <p class="text-sm text-on-surface-variant">Simpan hasil ekstraksi dalam format CSV yang siap digunakan untuk riset atau penjangkauan anda.</p>
+            <p class="text-sm text-on-surface-variant">Simpan hasil ekstraksi dalam format CSV yang siap digunakan untuk riset atau kebutuhan lain anda.</p>
         </div>
     </div>
 </section>

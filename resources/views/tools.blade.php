@@ -5,15 +5,17 @@
 @section('content')
 <!-- Main Content -->
 <main class="grow flex flex-col items-center w-full">
-    <!-- Hero Section -->
-    <section class="w-full bg-surface-container-lowest px-4 md:px-10 py-16 md:py-24 flex flex-col items-center text-center">
-        <div class="max-w-200 flex flex-col items-center gap-6">
-            <span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-label-sm font-label-sm uppercase tracking-widest font-bold">Direktori Alat</span>
-            <h1 class="text-3xl md:text-5xl font-headline-xl text-on-surface">Pilih Tool Ekstraksi Anda</h1>
-            <p class="text-base md:text-lg text-on-surface-variant max-w-2xl">
-                Jelajahi rangkaian alat profesional kami yang dirancang untuk mengotomatiskan pencarian, validasi, dan pengumpulan data kontak dengan presisi tinggi dan kecepatan luar biasa.
-            </p>
+    <!-- Hero Section OmniTools -->
+    <section class="py-16 md:py-24 px-4 text-center max-w-4xl mx-auto flex flex-col items-center">
+        <div class="bg-primary-fixed text-primary-container px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">construction</span> All-in-One Workspace
         </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-on-surface mb-6">
+            Selamat Datang di <span class="text-primary">OmniTools</span>
+        </h1>
+        <p class="text-lg text-on-surface-variant max-w-2xl">
+            Pusat perangkat kerja pintar untuk mendukung produktivitas perusahaan. Temukan berbagai alat andalan yang dirancang khusus  untuk menghemat waktu dan menyederhanakan tugas harianmu.
+        </p>
     </section>
 
     <!-- Tools Grid Section -->
@@ -34,7 +36,21 @@
                 </a>
             </div>
 
-            <!-- Card 2: Spam Checker (Arahkan ke route spam-checker) -->
+            <!-- Card 2: AI Email Writer -->
+            <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-surface-variant relative overflow-hidden group">
+                <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-2xl" data-icon="edit_note">edit_note</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface mb-3">AI Email Writer</h3>
+                <p class="text-sm text-on-surface-variant mb-8 grow">
+                    Hasilkan draf email profesional secara instan dengan bantuan AI. Cukup ketik apa yang ingin Anda sampaikan secara singkat.
+                </p>
+                <a href="{{ route('ai-email-writer') }}" class="w-full bg-primary text-on-primary text-center font-bold py-3 px-4 rounded-lg hover:bg-primary-container transition-colors duration-200">
+                    Gunakan Tool
+                </a>
+            </div>
+
+            <!-- Card 3: Spam Checker (Arahkan ke route spam-checker) -->
             <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-surface-variant relative overflow-hidden group">
                 <div class="w-12 h-12 bg-secondary-fixed rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform duration-300">
                     <span class="material-symbols-outlined text-2xl" data-icon="fact_check">fact_check</span>
@@ -48,19 +64,7 @@
                 </a>
             </div>
 
-            <!-- Card 3: URL Email Crawler -->
-            {{-- <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-surface-variant relative overflow-hidden group">
-                <div class="w-12 h-12 bg-tertiary-fixed rounded-lg flex items-center justify-center mb-6 text-tertiary group-hover:scale-110 transition-transform duration-300">
-                    <span class="material-symbols-outlined text-2xl" data-icon="spider">spider</span>
-                </div>
-                <h3 class="text-xl font-bold text-on-surface mb-3">URL Email Crawler</h3>
-                <p class="text-sm text-on-surface-variant mb-8 grow">
-                    Masukkan daftar URL website dan biarkan bot kami merayapi setiap halaman untuk menemukan, memvalidasi, dan mengumpulkan semua kontak yang tersedia.
-                </p>
-                <button class="w-full bg-surface-variant text-on-surface-variant font-bold py-3 px-4 rounded-lg cursor-not-allowed">
-                    Segera Hadir
-                </button>
-            </div> --}}
+            
 
         </div>
     </section>
@@ -75,7 +79,7 @@
                 </p>
             </div>
             <button class="bg-primary text-on-primary font-bold py-4 px-8 rounded-lg hover:bg-primary-container transition-colors duration-200 whitespace-nowrap">
-                Hubungi Sales
+                Hubungi Developer
             </button>
         </div>
     </section>

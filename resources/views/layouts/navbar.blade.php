@@ -1,9 +1,9 @@
 <nav class="bg-surface dark:bg-surface shadow-sm sticky top-0 z-50">
     <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20">
         <!-- Brand -->
-        <a class="flex items-center gap-2" href="{{ route('home') }}">
-            <span class="material-symbols-outlined text-primary" data-icon="travel_explore" style="font-variation-settings: 'FILL' 1;">travel_explore</span>
-            <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary">Email Extractor</span>
+        <a href="/" class="text-2xl font-bold text-primary flex items-center gap-2">
+            <span class="material-symbols-outlined">widgets</span>
+            OmniTools
         </a>
         <!-- Desktop Links -->
         <div class="hidden md:flex items-center gap-6">

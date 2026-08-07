@@ -3,16 +3,18 @@
         <!-- Brand Column -->
         <div class="col-span-1 sm:col-span-2 md:col-span-1 mb-8 md:mb-0">
             <a class="flex items-center gap-2 mb-4" href="#">
-                <span class="material-symbols-outlined text-primary" data-icon="travel_explore" style="font-variation-settings: 'FILL' 1;">travel_explore</span>
-                <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary">Email Extractor</span>
+                <!-- Ikon diubah menjadi widgets agar senada dengan konsep All-in-One -->
+                <span class="material-symbols-outlined text-primary" data-icon="widgets" style="font-variation-settings: 'FILL' 1;">widgets</span>
+                <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary">OmniTools</span>
             </a>
-            <p class="text-body-md font-body-md text-on-surface-variant">Solusi ekstraksi data jurnal tercepat untuk akademisi modern.</p>
+            <!-- Deskripsi disesuaikan untuk kebutuhan perusahaan -->
+            <p class="text-body-md font-body-md text-on-surface-variant">Pusat perangkat kerja pintar untuk mendukung produktivitas dan efisiensi harian perusahaan Anda.</p>
         </div>
         <!-- Links Columns -->
         <div>
             <h4 class="font-label-md text-label-md text-on-surface font-bold mb-4 uppercase tracking-wider">Product</h4>
             <ul class="space-y-3">
-                <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Tools</a></li>
+                <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="{{ route('home') }}">Tools</a></li>
                 <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#cara-kerja">Cara Kerja</a></li>
                 <li><a class="text-body-md font-body-md text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors" href="#">FAQ</a></li>
             </ul>
@@ -35,7 +37,9 @@
     </div>
     <div class="border-t border-surface-variant">
         <div class="px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto text-center md:text-left">
-            <p class="text-label-sm font-label-sm text-on-surface-variant">© 2026 Email Extractor. All rights reserved.</p>
+            <p class="text-on-surface-variant text-sm">
+                &copy; {{ date('Y') }} OmniTools. All rights reserved.
+            </p>
         </div>
     </div>
 </footer>
