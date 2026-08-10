@@ -26,3 +26,12 @@ Route::get('/ai-email-writer', function () {
 })->name('ai-email-writer');
 
 Route::post('/ai-email-writer/generate', [AiEmailController::class, 'generate'])->name('ai-email-writer.generate');
+
+use App\Http\Controllers\AiEmailResponseController;
+
+// 5. Halaman AI Email Response
+Route::get('/ai-email-response', function () {
+    return view('ai-email-response');
+})->name('ai-email-response');
+
+Route::post('/ai-email-response/generate', [AiEmailResponseController::class, 'generate'])->name('ai-email-response.generate');

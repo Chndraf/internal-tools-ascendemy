@@ -64,7 +64,19 @@
                 </a>
             </div>
 
-            
+            <!-- Card 4: AI Email Response -->
+            <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-surface-variant relative overflow-hidden group">
+                <div class="w-12 h-12 bg-secondary-fixed rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-2xl" data-icon="reply">reply</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface mb-3">AI Email Response</h3>
+                <p class="text-sm text-on-surface-variant mb-8 grow">
+                    Balas email masuk dengan cepat dan profesional. Tempel email yang diterima, berikan instruksi singkat, dan biarkan AI merangkai jawabannya.
+                </p>
+                <a href="{{ route('ai-email-response') }}" class="w-full bg-primary text-on-primary text-center font-bold py-3 px-4 rounded-lg hover:bg-primary-container transition-colors duration-200">
+                    Gunakan Tool
+                </a>
+            </div>
 
         </div>
     </section>
