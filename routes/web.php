@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SpamCheckerController;
 use App\Http\Controllers\AiEmailController;
+use App\Http\Controllers\AiEmailResponseController;
+use App\Http\Controllers\AiPdfSummarizerController;
 
 // 1. Direktori Tools sekarang menjadi Halaman Utama (Home)
 Route::get('/', function () {
@@ -27,11 +29,16 @@ Route::get('/ai-email-writer', function () {
 
 Route::post('/ai-email-writer/generate', [AiEmailController::class, 'generate'])->name('ai-email-writer.generate');
 
-use App\Http\Controllers\AiEmailResponseController;
-
 // 5. Halaman AI Email Response
 Route::get('/ai-email-response', function () {
     return view('ai-email-response');
 })->name('ai-email-response');
 
 Route::post('/ai-email-response/generate', [AiEmailResponseController::class, 'generate'])->name('ai-email-response.generate');
+
+// 6. Halaman AI PDF Summarizer
+Route::get('/ai-pdf-summarizer', function () {
+    return view('ai-pdf-summarizer');
+})->name('ai-pdf-summarizer');
+
+Route::post('/ai-pdf-summarizer/generate', [AiPdfSummarizerController::class, 'generate'])->name('ai-pdf-summarizer.generate');

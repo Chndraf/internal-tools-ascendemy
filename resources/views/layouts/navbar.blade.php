@@ -12,7 +12,7 @@
 
             <!-- Sembunyikan Cara Kerja jika sedang berada di halaman utama (Direktori Tools) -->
             @if(!request()->is('/'))
-                <a href="#cara-kerja" class="text-on-surface-variant hover:text-primary font-medium transition-colors">
+                <a href="#cara-kerja" class="text-on-surface hover:text-primary font-medium transition-colors">
                     Cara Kerja
                 </a>
             @endif
