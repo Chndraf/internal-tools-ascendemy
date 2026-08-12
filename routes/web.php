@@ -6,6 +6,9 @@ use App\Http\Controllers\SpamCheckerController;
 use App\Http\Controllers\AiEmailController;
 use App\Http\Controllers\AiEmailResponseController;
 use App\Http\Controllers\AiPdfSummarizerController;
+use App\Http\Controllers\AiBroadcastController;
+use App\Http\Controllers\AiMeetingMinutesController;
+
 
 // 1. Direktori Tools sekarang menjadi Halaman Utama (Home)
 Route::get('/', function () {
@@ -42,3 +45,17 @@ Route::get('/ai-pdf-summarizer', function () {
 })->name('ai-pdf-summarizer');
 
 Route::post('/ai-pdf-summarizer/generate', [AiPdfSummarizerController::class, 'generate'])->name('ai-pdf-summarizer.generate');
+
+// 7. Halaman AI Broadcast
+Route::get('/ai-broadcast', function () {
+    return view('ai-broadcast');
+})->name('ai-broadcast');
+
+Route::post('/ai-broadcast/generate', [AiBroadcastController::class, 'generate'])->name('ai-broadcast.generate');
+
+// 8. Halaman AI Meeting Minutes
+Route::get('/ai-meeting-minutes', function () {
+    return view('ai-meeting-minutes');
+})->name('ai-meeting-minutes');
+
+Route::post('/ai-meeting-minutes/generate', [AiMeetingMinutesController::class, 'generate'])->name('ai-meeting-minutes.generate');
