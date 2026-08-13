@@ -26,9 +26,9 @@ class AiMeetingMinutesController extends Controller
 
             $response = Http::withoutVerifying()
                 ->withToken($apiKey)
-                ->timeout(45) // Dibuat agak lama karena outputnya bisa panjang
+                ->timeout(45) // Dibuat agak lama karena output nya bisa panjang
                 ->post('https://api.groq.com/openai/v1/chat/completions', [
-                    'model' => 'llama-3.1-8b-instant',
+                    'model' => 'openai/gpt-oss-20b',
                     'messages' => [
                         [
                             'role' => 'system',

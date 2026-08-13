@@ -54,7 +54,7 @@ class AiPdfSummarizerController extends Controller
             $userPrompt = "Berikut adalah teks dari dokumen PDF:\n\n\"" . $limitedText . "\"\n\nTolong buatkan ringkasan dokumen tersebut sesuai instruksi.";
 
             // Konfigurasi Model
-            $modelName = 'llama-3.1-8b-instant';
+            $modelName = 'openai/gpt-oss-20b';
             $apiEndpoint = 'https://api.groq.com/openai/v1/chat/completions';
 
             // 5. Kirim Permintaan ke API Groq
