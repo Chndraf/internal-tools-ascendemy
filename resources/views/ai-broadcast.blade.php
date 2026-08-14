@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'AI Broadcast Generator - Buat Pengumuman Massal')
+@section('title', 'AI Broadcast Generator - OmniTools')
 
 @section('content')
 <!-- Hero Section -->

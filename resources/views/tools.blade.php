@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Direktori Alat - Email Extractor')
+@section('title', 'OmniTools')
 
 @section('content')
 <!-- Main Content -->

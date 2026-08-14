@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'AI PDF Summarizer - Ringkas Dokumen Otomatis')
+@section('title', 'AI PDF Summarizer - OmniTools')
 
 @section('content')
 <section class="py-16 md:py-24 px-4 max-w-5xl mx-auto text-center flex flex-col items-center">

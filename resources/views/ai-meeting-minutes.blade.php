@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'AI Meeting Minutes - Notulen Rapat Otomatis')
+@section('title', 'AI Meeting Minutes - OmniTools')
 
 @section('content')
 <!-- Hero Section -->

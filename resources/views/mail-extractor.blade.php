@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Beranda - Email Extractor Jurnal')
+@section('title', 'Email Extractor Jurnal - OmniTools')
 
 @section('content')
 <!-- Hero Section -->

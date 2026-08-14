@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Spam Checker - Evaluasi Email Anda')
+@section('title', 'Spam Checker - OmniTools')
 
 @section('content')
 <!-- Hero Section -->

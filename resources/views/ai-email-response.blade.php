@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'AI Email Response - Balas Email Cerdas')
+@section('title', 'AI Email Response - OmniTools')
 
 @section('content')
 <!-- Hero Section -->
