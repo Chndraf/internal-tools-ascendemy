@@ -8,7 +8,7 @@ use App\Http\Controllers\AiEmailResponseController;
 use App\Http\Controllers\AiPdfSummarizerController;
 use App\Http\Controllers\AiBroadcastController;
 use App\Http\Controllers\AiMeetingMinutesController;
-
+use App\Http\Controllers\AiDailyReporterController;
 
 // 1. Direktori Tools sekarang menjadi Halaman Utama (Home)
 Route::get('/', function () {
@@ -59,3 +59,10 @@ Route::get('/ai-meeting-minutes', function () {
 })->name('ai-meeting-minutes');
 
 Route::post('/ai-meeting-minutes/generate', [AiMeetingMinutesController::class, 'generate'])->name('ai-meeting-minutes.generate');
+
+// 9. Halaman AI Daily Reporter
+Route::get('/ai-daily-reporter', function () {
+    return view('ai-daily-reporter');
+})->name('ai-daily-reporter');
+
+Route::post('/ai-daily-reporter/generate', [AiDailyReporterController::class, 'generate'])->name('ai-daily-reporter.generate');
