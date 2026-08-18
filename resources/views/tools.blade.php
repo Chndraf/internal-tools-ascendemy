@@ -134,6 +134,20 @@
                 </a>
             </div>
 
+            <!-- Card: AI Caption Generator -->
+            <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-surface-variant relative overflow-hidden group">
+                <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-2xl" data-icon="add_photo_alternate">add_photo_alternate</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface mb-3">AI Caption Generator</h3>
+                <p class="text-sm text-on-surface-variant mb-8 grow">
+                    Unggah beberapa gambar sekaligus dan biarkan AI menganalisis isinya untuk membuatkan caption sosmed yang menarik dan spesifik untuk setiap gambar.
+                </p>
+                <a href="{{ route('ai-caption-generator') }}" class="w-full bg-primary text-on-primary text-center font-bold py-3 px-4 rounded-lg hover:bg-primary-container transition-colors duration-200">
+                    Gunakan Tool
+                </a>
+            </div>
+
         </div>
     </section>
 

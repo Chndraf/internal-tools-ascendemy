@@ -9,6 +9,7 @@ use App\Http\Controllers\AiPdfSummarizerController;
 use App\Http\Controllers\AiBroadcastController;
 use App\Http\Controllers\AiMeetingMinutesController;
 use App\Http\Controllers\AiDailyReporterController;
+use App\Http\Controllers\AiCaptionGeneratorController;
 
 // 1. Direktori Tools sekarang menjadi Halaman Utama (Home)
 Route::get('/', function () {
@@ -66,3 +67,10 @@ Route::get('/ai-daily-reporter', function () {
 })->name('ai-daily-reporter');
 
 Route::post('/ai-daily-reporter/generate', [AiDailyReporterController::class, 'generate'])->name('ai-daily-reporter.generate');
+
+// 10. Halaman AI Caption Generator
+Route::get('/ai-caption-generator', function () {
+    return view('ai-caption-generator');
+})->name('ai-caption-generator');
+
+Route::post('/ai-caption-generator/generate', [AiCaptionGeneratorController::class, 'generate'])->name('ai-caption-generator.generate');
