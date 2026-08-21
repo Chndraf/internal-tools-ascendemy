@@ -4,9 +4,6 @@
 
 @section('content')
 <section class="py-16 md:py-24 px-4 max-w-5xl mx-auto text-center flex flex-col items-center">
-    <div class="bg-primary-fixed text-primary-container px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6 flex items-center gap-2 shadow-sm border border-primary-fixed-dim">
-        <span class="material-symbols-outlined text-sm">image</span> Visual AI
-    </div>
     <h1 class="text-3xl md:text-5xl font-bold text-on-surface mb-4">
         AI Caption Generator
     </h1>

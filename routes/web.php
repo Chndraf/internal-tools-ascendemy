@@ -10,6 +10,9 @@ use App\Http\Controllers\AiBroadcastController;
 use App\Http\Controllers\AiMeetingMinutesController;
 use App\Http\Controllers\AiDailyReporterController;
 use App\Http\Controllers\AiCaptionGeneratorController;
+use App\Http\Controllers\AiSuratGeneratorController;
+use App\Http\Controllers\AiDataParserController;
+use App\Http\Controllers\AiTaskBreakdownController;
 
 // 1. Direktori Tools sekarang menjadi Halaman Utama (Home)
 Route::get('/', function () {
@@ -74,3 +77,24 @@ Route::get('/ai-caption-generator', function () {
 })->name('ai-caption-generator');
 
 Route::post('/ai-caption-generator/generate', [AiCaptionGeneratorController::class, 'generate'])->name('ai-caption-generator.generate');
+
+// 11. Halaman AI Surat Generator
+Route::get('/ai-surat-generator', function () {
+    return view('ai-surat-generator');
+})->name('ai-surat-generator');
+
+Route::post('/ai-surat-generator/generate', [AiSuratGeneratorController::class, 'generate'])->name('ai-surat-generator.generate');
+
+// 12. Halaman AI Data Parser
+Route::get('/ai-data-parser', function () {
+    return view('ai-data-parser');
+})->name('ai-data-parser');
+
+Route::post('/ai-data-parser/generate', [AiDataParserController::class, 'generate'])->name('ai-data-parser.generate');
+
+// 13. Halaman AI Task Breakdown
+Route::get('/ai-task-breakdown', function () {
+    return view('ai-task-breakdown');
+})->name('ai-task-breakdown');
+
+Route::post('/ai-task-breakdown/generate', [AiTaskBreakdownController::class, 'generate'])->name('ai-task-breakdown.generate');

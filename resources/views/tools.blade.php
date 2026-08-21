@@ -134,7 +134,7 @@
                 </a>
             </div>
 
-            <!-- Card: AI Caption Generator -->
+            <!-- Card 9: AI Caption Generator -->
             <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-surface-variant relative overflow-hidden group">
                 <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
                     <span class="material-symbols-outlined text-2xl" data-icon="add_photo_alternate">add_photo_alternate</span>
@@ -144,6 +144,48 @@
                     Unggah beberapa gambar sekaligus dan biarkan AI menganalisis isinya untuk membuatkan caption sosmed yang menarik dan spesifik untuk setiap gambar.
                 </p>
                 <a href="{{ route('ai-caption-generator') }}" class="w-full bg-primary text-on-primary text-center font-bold py-3 px-4 rounded-lg hover:bg-primary-container transition-colors duration-200">
+                    Gunakan Tool
+                </a>
+            </div>
+
+            <!-- Card 10: AI Surat Resmi Generator -->
+            <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-surface-variant relative overflow-hidden group">
+                <div class="w-12 h-12 bg-secondary-fixed rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-2xl" data-icon="history_edu">history_edu</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface mb-3">AI Surat Resmi</h3>
+                <p class="text-sm text-on-surface-variant mb-8 grow">
+                    Ubah instruksi singkat menjadi draf surat resmi (Undangan, Permohonan, Surat Tugas) lengkap dengan format baku yang siap disalin ke Microsoft Word.
+                </p>
+                <a href="{{ route('ai-surat-generator') }}" class="w-full bg-primary text-on-primary text-center font-bold py-3 px-4 rounded-lg hover:bg-primary-container transition-colors duration-200">
+                    Gunakan Tool
+                </a>
+            </div>
+
+            <!-- Card 11: AI Data Parser -->
+            <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-surface-variant relative overflow-hidden group">
+                <div class="w-12 h-12 bg-tertiary-fixed rounded-lg flex items-center justify-center mb-6 text-tertiary group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-2xl" data-icon="table_chart">table_chart</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface mb-3">AI Data Parser</h3>
+                <p class="text-sm text-on-surface-variant mb-8 grow">
+                    Ektrak dan ubah teks berantakan (seperti pesanan dari WA atau catatan acak) menjadi format tabel rapi yang siap di-paste ke Excel.
+                </p>
+                <a href="{{ route('ai-data-parser') }}" class="w-full bg-primary text-on-primary text-center font-bold py-3 px-4 rounded-lg hover:bg-primary-container transition-colors duration-200">
+                    Gunakan Tool
+                </a>
+            </div>
+
+            <!-- Card: AI Task Breakdown -->
+            <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-surface-variant relative overflow-hidden group">
+                <div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-2xl" data-icon="account_tree">account_tree</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface mb-3">AI Task Breakdown</h3>
+                <p class="text-sm text-on-surface-variant mb-8 grow">
+                    Pecah proyek besar yang membingungkan menjadi daftar pekerjaan langkah demi langkah yang jelas, lengkap dengan estimasi waktu pengerjaannya.
+                </p>
+                <a href="{{ route('ai-task-breakdown') }}" class="w-full bg-primary text-on-primary text-center font-bold py-3 px-4 rounded-lg hover:bg-primary-container transition-colors duration-200">
                     Gunakan Tool
                 </a>
             </div>
