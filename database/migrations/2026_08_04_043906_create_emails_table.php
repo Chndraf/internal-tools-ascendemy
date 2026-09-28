@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('emails', function (Blueprint $table) {
-        $table->id();
-        $table->string('email');
-        
-        // Membuat relasi yang menghubungkan email dengan negara dan keyword
-        $table->foreignId('country_id')->constrained('countries')->onDelete('cascade');
-        $table->foreignId('keyword_id')->constrained('keywords')->onDelete('cascade');
-        
-        $table->timestamps();
-    });
+            $table->id();
+            $table->string('email');
+
+            // Membuat relasi yang menghubungkan email dengan negara dan keyword
+            $table->foreignId('country_id')->constrained('countries')->onDelete('cascade');
+            $table->foreignId('keyword_id')->constrained('keywords')->onDelete('cascade');
+
+            $table->timestamps();
+        });
     }
 
     /**

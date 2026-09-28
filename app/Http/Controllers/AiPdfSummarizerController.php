@@ -12,9 +12,6 @@ class AiPdfSummarizerController extends Controller
 {
     /**
      * Menangani permintaan unggah PDF dan membuat ringkasan menggunakan AI.
-     *
-     * @param Request $request
-     * @return JsonResponse
      */
     public function generate(Request $request): JsonResponse
     {
@@ -25,7 +22,7 @@ class AiPdfSummarizerController extends Controller
 
         try {
             // 2. Ekstrak teks dari file PDF
-            $parser = new Parser();
+            $parser = new Parser;
             $pdfContent = $parser->parseFile($request->file('pdf_file')->path());
             $rawText = $pdfContent->getText();
 
@@ -41,17 +38,17 @@ class AiPdfSummarizerController extends Controller
             if (empty($limitedText)) {
                 return response()->json([
                     'success' => false,
-                    'message' => 'Tidak ada teks yang bisa dibaca dari dokumen ini. Pastikan PDF bukan hasil scan/gambar.'
+                    'message' => 'Tidak ada teks yang bisa dibaca dari dokumen ini. Pastikan PDF bukan hasil scan/gambar.',
                 ], 422); // Gunakan 422 Unprocessable Entity untuk error konten
             }
 
             // 4. Persiapan Data untuk API Groq
             $apiKey = env('GROQ_API_KEY');
-            if (!$apiKey) {
+            if (! $apiKey) {
                 throw new Exception('GROQ_API_KEY tidak ditemukan di file .env');
             }
 
-            $userPrompt = "Berikut adalah teks dari dokumen PDF:\n\n\"" . $limitedText . "\"\n\nTolong buatkan ringkasan dokumen tersebut sesuai instruksi.";
+            $userPrompt = "Berikut adalah teks dari dokumen PDF:\n\n\"".$limitedText."\"\n\nTolong buatkan ringkasan dokumen tersebut sesuai instruksi.";
 
             // Konfigurasi Model
             $modelName = 'openai/gpt-oss-20b';
@@ -62,16 +59,16 @@ class AiPdfSummarizerController extends Controller
                 ->withToken($apiKey)
                 ->timeout(60) // Beri waktu lebih lama karena proses ringkasan butuh waktu
                 ->post($apiEndpoint, [
-                    'model'       => $modelName,
-                    'messages'    => [
+                    'model' => $modelName,
+                    'messages' => [
                         [
-                            'role'    => 'system',
-                            'content' => $this->getSystemPrompt() // Prompt panjang diambil dari metode privat
+                            'role' => 'system',
+                            'content' => $this->getSystemPrompt(), // Prompt panjang diambil dari metode privat
                         ],
                         [
-                            'role'    => 'user',
-                            'content' => $userPrompt
-                        ]
+                            'role' => 'user',
+                            'content' => $userPrompt,
+                        ],
                     ],
                     'temperature' => 0.5, // Temperature sedang untuk keseimbangan akurasi & variasi
                 ]);
@@ -83,29 +80,27 @@ class AiPdfSummarizerController extends Controller
 
                 return response()->json([
                     'success' => true,
-                    'result'  => trim($aiSummary)
+                    'result' => trim($aiSummary),
                 ]);
             }
 
             // Jika API menolak/error
             return response()->json([
                 'success' => false,
-                'message' => 'API Groq gagal merespon: ' . $response->body()
+                'message' => 'API Groq gagal merespon: '.$response->body(),
             ], $response->status());
 
         } catch (Exception $e) {
             // Tangani error sistem (file corrupted, parsing error, koneksi, dll)
             return response()->json([
                 'success' => false,
-                'message' => 'Terjadi kesalahan sistem: ' . $e->getMessage()
+                'message' => 'Terjadi kesalahan sistem: '.$e->getMessage(),
             ], 500);
         }
     }
 
     /**
      * Mengembalikan prompt sistem yang sangat ketat dan terstruktur untuk AI.
-     *
-     * @return string
      */
     private function getSystemPrompt(): string
     {

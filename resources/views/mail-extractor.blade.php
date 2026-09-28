@@ -129,6 +129,9 @@
                         <thead>
                             <tr class="border-b border-surface-variant text-on-surface-variant text-xs">
                                 <th class="py-2 px-3 font-medium">Email</th>
+                                <th class="py-2 px-3 font-medium">Judul</th>
+                                <th class="py-2 px-3 font-medium">Negara</th>
+                                <th class="py-2 px-3 font-medium">Keyword</th>
                                 <th class="py-2 px-3 font-medium text-center w-24">Aksi</th>
                             </tr>
                         </thead>
@@ -187,5 +190,183 @@
         </button>
     </div>
 </section> --}}
+
+<script>
+    let currentTab = 'keyword';
+    let extractedEmails = [];
+
+    // Switch Tab Function
+    function switchTab(tab) {
+        currentTab = tab;
+        const formSlider = document.getElementById('form-slider');
+        const tabBg = document.getElementById('tab-bg');
+        const btnKeyword = document.getElementById('btn-keyword');
+        const btnUrl = document.getElementById('btn-url');
+
+        if (tab === 'keyword') {
+            formSlider.style.transform = 'translateX(0)';
+            tabBg.style.transform = 'translateX(0)';
+            btnKeyword.classList.remove('text-on-surface-variant');
+            btnKeyword.classList.add('text-on-primary');
+            btnUrl.classList.remove('text-on-primary');
+            btnUrl.classList.add('text-on-surface-variant');
+        } else {
+            formSlider.style.transform = 'translateX(-100%)';
+            tabBg.style.transform = 'translateX(100%)';
+            btnUrl.classList.remove('text-on-surface-variant');
+            btnUrl.classList.add('text-on-primary');
+            btnKeyword.classList.remove('text-on-primary');
+            btnKeyword.classList.add('text-on-surface-variant');
+        }
+
+        // Hide results when switching tabs
+        document.getElementById('results-area').classList.add('hidden');
+    }
+
+    // Extract Data Function
+    async function extractData(event, type) {
+        event.preventDefault();
+
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const resultsArea = document.getElementById('results-area');
+        const resultsTbody = document.getElementById('results-tbody');
+
+        // Show loading
+        loadingIndicator.classList.remove('hidden');
+        resultsArea.classList.add('hidden');
+        resultsTbody.innerHTML = '';
+
+        try {
+            let url = '{{ route("email-extractor") }}';
+            let formData = new FormData();
+
+            if (type === 'keyword') {
+                const country = document.getElementById('country-select').value;
+                const keyword = document.getElementById('keyword-select').value;
+
+                formData.append('type', 'keyword');
+                formData.append('country', country);
+                formData.append('keyword', keyword);
+            } else {
+                const urlInput = document.getElementById('url-input').value;
+                formData.append('type', 'url');
+                formData.append('url_endpoint', urlInput);
+            }
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: formData
+            });
+
+            const data = await response.json();
+
+            // Hide loading
+            loadingIndicator.classList.add('hidden');
+
+            // Process results
+            if (type === 'keyword') {
+                // Pagination response from database with full data
+                extractedEmails = data.data;
+            } else {
+                // Array response from URL scraping (only emails)
+                extractedEmails = (data.data || []).map(email => ({
+                    email: email,
+                    title: '-',
+                    country: { name: '-' },
+                    keyword: { name: '-' }
+                }));
+            }
+
+            if (extractedEmails.length > 0) {
+                displayResults(extractedEmails, type);
+            } else {
+                resultsTbody.innerHTML = '<tr><td colspan="5" class="text-center py-6 text-on-surface-variant">Tidak ada email ditemukan</td></tr>';
+                resultsArea.classList.remove('hidden');
+            }
+
+        } catch (error) {
+            console.error('Error:', error);
+            loadingIndicator.classList.add('hidden');
+            resultsTbody.innerHTML = '<tr><td colspan="5" class="text-center py-6 text-error">Terjadi kesalahan: ' + error.message + '</td></tr>';
+            resultsArea.classList.remove('hidden');
+        }
+    }
+
+    // Display Results Function
+    function displayResults(data, type) {
+        const resultsTbody = document.getElementById('results-tbody');
+        const resultsArea = document.getElementById('results-area');
+        const resultsTitle = document.getElementById('results-title');
+
+        resultsTbody.innerHTML = '';
+        resultsTitle.textContent = `Hasil Ekstraksi (${data.length} data)`;
+
+        data.forEach((item, index) => {
+            const row = document.createElement('tr');
+            row.className = 'border-b border-surface-variant hover:bg-surface-container-low transition-colors';
+            
+            const email = item.email || '-';
+            const title = item.title || '-';
+            const country = item.country ? item.country.name : '-';
+            const keyword = item.keyword ? item.keyword.name : '-';
+            
+            row.innerHTML = `
+                <td class="py-3 px-3">${email}</td>
+                <td class="py-3 px-3">${title}</td>
+                <td class="py-3 px-3">${country}</td>
+                <td class="py-3 px-3">${keyword}</td>
+                <td class="py-3 px-3 text-center">
+                    <button onclick="copyEmail('${email}')" class="text-secondary hover:text-primary transition-colors" title="Copy Email">
+                        <span class="material-symbols-outlined text-[20px]" data-icon="content_copy">content_copy</span>
+                    </button>
+                </td>
+            `;
+            resultsTbody.appendChild(row);
+        });
+
+        resultsArea.classList.remove('hidden');
+    }
+
+    // Copy Email Function
+    function copyEmail(email) {
+        navigator.clipboard.writeText(email).then(() => {
+            alert('Email berhasil disalin: ' + email);
+        }).catch(err => {
+            console.error('Gagal menyalin:', err);
+        });
+    }
+
+    // Export to CSV Function
+    function exportToCSV() {
+        if (extractedEmails.length === 0) {
+            alert('Tidak ada data untuk diekspor');
+            return;
+        }
+
+        let csvContent = "data:text/csv;charset=utf-8,";
+        csvContent += "Email,Judul,Negara,Keyword\n";
+        
+        extractedEmails.forEach(item => {
+            const email = (item.email || '-').replace(/"/g, '""');
+            const title = (item.title || '-').replace(/"/g, '""');
+            const country = item.country ? item.country.name.replace(/"/g, '""') : '-';
+            const keyword = item.keyword ? item.keyword.name.replace(/"/g, '""') : '-';
+            
+            csvContent += `"${email}","${title}","${country}","${keyword}"\n`;
+        });
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "extracted_emails_" + Date.now() + ".csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
 
 @endsection

@@ -13,19 +13,19 @@ class AiSuratGeneratorController extends Controller
     {
         $request->validate([
             'jenis_surat' => 'required|string|max:100',
-            'penerima'    => 'required|string|max:255',
-            'konteks'     => 'required|string'
+            'penerima' => 'required|string|max:255',
+            'konteks' => 'required|string',
         ]);
 
         try {
             $apiKey = env('GROQ_API_KEY');
-            if (!$apiKey) {
+            if (! $apiKey) {
                 throw new Exception('GROQ_API_KEY tidak ditemukan.');
             }
 
-            $userPrompt = "Jenis Surat: " . $request->jenis_surat . "\n"
-                        . "Pihak Tujuan/Penerima: " . $request->penerima . "\n\n"
-                        . "Konteks/Isi Pokok Surat:\n" . $request->konteks;
+            $userPrompt = 'Jenis Surat: '.$request->jenis_surat."\n"
+                        .'Pihak Tujuan/Penerima: '.$request->penerima."\n\n"
+                        ."Konteks/Isi Pokok Surat:\n".$request->konteks;
 
             $response = Http::withoutVerifying()
                 ->withToken($apiKey)
@@ -35,33 +35,34 @@ class AiSuratGeneratorController extends Controller
                     'messages' => [
                         [
                             'role' => 'system',
-                            'content' => $this->getSystemPrompt()
+                            'content' => $this->getSystemPrompt(),
                         ],
                         [
                             'role' => 'user',
-                            'content' => $userPrompt
-                        ]
+                            'content' => $userPrompt,
+                        ],
                     ],
                     'temperature' => 0.5,
                 ]);
 
             if ($response->successful()) {
                 $result = $response->json();
+
                 return response()->json([
                     'success' => true,
-                    'result'  => trim($result['choices'][0]['message']['content'] ?? '')
+                    'result' => trim($result['choices'][0]['message']['content'] ?? ''),
                 ]);
             }
 
             return response()->json([
-                'success' => false, 
-                'message' => 'Ditolak Groq: ' . $response->body()
+                'success' => false,
+                'message' => 'Ditolak Groq: '.$response->body(),
             ], $response->status());
 
         } catch (Exception $e) {
             return response()->json([
-                'success' => false, 
-                'message' => 'Terjadi kesalahan: ' . $e->getMessage()
+                'success' => false,
+                'message' => 'Terjadi kesalahan: '.$e->getMessage(),
             ], 500);
         }
     }

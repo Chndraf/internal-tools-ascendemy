@@ -13,16 +13,16 @@ class AiDataParserController extends Controller
     {
         $request->validate([
             'kolom_target' => 'required|string|max:500',
-            'data_mentah'  => 'required|string'
+            'data_mentah' => 'required|string',
         ]);
 
         try {
             $apiKey = env('GROQ_API_KEY');
-            if (!$apiKey) {
+            if (! $apiKey) {
                 throw new Exception('GROQ_API_KEY tidak ditemukan.');
             }
 
-            $userPrompt = "Target Kolom:\n" . $request->kolom_target . "\n\nData Mentah:\n" . $request->data_mentah;
+            $userPrompt = "Target Kolom:\n".$request->kolom_target."\n\nData Mentah:\n".$request->data_mentah;
 
             $response = Http::withoutVerifying()
                 ->withToken($apiKey)
@@ -32,33 +32,34 @@ class AiDataParserController extends Controller
                     'messages' => [
                         [
                             'role' => 'system',
-                            'content' => $this->getSystemPrompt()
+                            'content' => $this->getSystemPrompt(),
                         ],
                         [
                             'role' => 'user',
-                            'content' => $userPrompt
-                        ]
+                            'content' => $userPrompt,
+                        ],
                     ],
                     'temperature' => 0.1, // Dibuat rendah agar AI sangat fokus dan tidak berhalusinasi
                 ]);
 
             if ($response->successful()) {
                 $result = $response->json();
+
                 return response()->json([
                     'success' => true,
-                    'result'  => trim($result['choices'][0]['message']['content'] ?? '')
+                    'result' => trim($result['choices'][0]['message']['content'] ?? ''),
                 ]);
             }
 
             return response()->json([
-                'success' => false, 
-                'message' => 'Ditolak Groq: ' . $response->body()
+                'success' => false,
+                'message' => 'Ditolak Groq: '.$response->body(),
             ], $response->status());
 
         } catch (Exception $e) {
             return response()->json([
-                'success' => false, 
-                'message' => 'Terjadi kesalahan: ' . $e->getMessage()
+                'success' => false,
+                'message' => 'Terjadi kesalahan: '.$e->getMessage(),
             ], 500);
         }
     }

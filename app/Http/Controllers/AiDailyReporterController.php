@@ -16,56 +16,56 @@ class AiDailyReporterController extends Controller
     {
         $request->validate([
             'main_target' => 'required|string|max:500',
-            'raw_logs'    => 'required|string'
+            'raw_logs' => 'required|string',
         ]);
 
         try {
             $apiKey = env('GROQ_API_KEY');
-            if (!$apiKey) {
+            if (! $apiKey) {
                 throw new Exception('GROQ_API_KEY tidak ditemukan.');
             }
 
-            $userPrompt = "Target Utama Hari Ini:\n" . $request->main_target . "\n\nCatatan Aktivitas (Acak):\n" . $request->raw_logs;
-            
+            $userPrompt = "Target Utama Hari Ini:\n".$request->main_target."\n\nCatatan Aktivitas (Acak):\n".$request->raw_logs;
+
             $apiEndpoint = 'https://api.groq.com/openai/v1/chat/completions';
-            $modelName   = 'openai/gpt-oss-20b';
+            $modelName = 'openai/gpt-oss-20b';
 
             $response = Http::withoutVerifying()
                 ->withToken($apiKey)
                 ->timeout(45)
                 ->post($apiEndpoint, [
-                    'model'    => $modelName,
+                    'model' => $modelName,
                     'messages' => [
                         [
-                            'role'    => 'system',
-                            'content' => $this->getSystemPrompt()
+                            'role' => 'system',
+                            'content' => $this->getSystemPrompt(),
                         ],
                         [
-                            'role'    => 'user',
-                            'content' => $userPrompt
-                        ]
+                            'role' => 'user',
+                            'content' => $userPrompt,
+                        ],
                     ],
                     'temperature' => 0.5,
                 ]);
 
             if ($response->successful()) {
                 $result = $response->json();
-                
+
                 return response()->json([
                     'success' => true,
-                    'result'  => trim($result['choices'][0]['message']['content'] ?? '')
+                    'result' => trim($result['choices'][0]['message']['content'] ?? ''),
                 ]);
             }
 
             return response()->json([
-                'success' => false, 
-                'message' => 'Ditolak Groq: ' . $response->body()
+                'success' => false,
+                'message' => 'Ditolak Groq: '.$response->body(),
             ], $response->status());
 
         } catch (Exception $e) {
             return response()->json([
-                'success' => false, 
-                'message' => 'Terjadi kesalahan: ' . $e->getMessage()
+                'success' => false,
+                'message' => 'Terjadi kesalahan: '.$e->getMessage(),
             ], 500);
         }
     }

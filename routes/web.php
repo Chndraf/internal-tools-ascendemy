@@ -1,18 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SpamCheckerController;
+use App\Http\Controllers\AiBroadcastController;
+use App\Http\Controllers\AiCaptionGeneratorController;
+use App\Http\Controllers\AiDailyReporterController;
+use App\Http\Controllers\AiDataParserController;
 use App\Http\Controllers\AiEmailController;
 use App\Http\Controllers\AiEmailResponseController;
-use App\Http\Controllers\AiPdfSummarizerController;
-use App\Http\Controllers\AiBroadcastController;
 use App\Http\Controllers\AiMeetingMinutesController;
-use App\Http\Controllers\AiDailyReporterController;
-use App\Http\Controllers\AiCaptionGeneratorController;
+use App\Http\Controllers\AiPdfSummarizerController;
 use App\Http\Controllers\AiSuratGeneratorController;
-use App\Http\Controllers\AiDataParserController;
 use App\Http\Controllers\AiTaskBreakdownController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SpamCheckerController;
+use Illuminate\Support\Facades\Route;
 
 // 1. Direktori Tools sekarang menjadi Halaman Utama (Home)
 Route::get('/', function () {

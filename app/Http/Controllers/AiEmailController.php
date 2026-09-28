@@ -10,7 +10,7 @@ class AiEmailController extends Controller
     public function generate(Request $request)
     {
         $request->validate([
-            'prompt' => 'required|string|max:1000'
+            'prompt' => 'required|string|max:1000',
         ]);
 
         $prompt = $request->input('prompt');
@@ -21,16 +21,16 @@ class AiEmailController extends Controller
                 ->withToken($apiKey)
                 ->timeout(15)
                 ->post('https://api.groq.com/openai/v1/chat/completions', [
-                    'model' => 'openai/gpt-oss-20b', 
+                    'model' => 'openai/gpt-oss-20b',
                     'messages' => [
                         [
                             'role' => 'system',
-                            'content' => 'Kamu adalah asisten ahli penulis email profesional. Tulislah email yang sopan, jelas, dan terstruktur berdasarkan instruksi singkat dari pengguna. Gunakan bahasa Indonesia. Sediakan placeholder seperti [Nama Anda] atau [Tanggal] jika diperlukan. Jawab langsung dengan isi email saja tanpa kalimat pengantar atau penutup tambahan.'
+                            'content' => 'Kamu adalah asisten ahli penulis email profesional. Tulislah email yang sopan, jelas, dan terstruktur berdasarkan instruksi singkat dari pengguna. Gunakan bahasa Indonesia. Sediakan placeholder seperti [Nama Anda] atau [Tanggal] jika diperlukan. Jawab langsung dengan isi email saja tanpa kalimat pengantar atau penutup tambahan.',
                         ],
                         [
                             'role' => 'user',
-                            'content' => $prompt
-                        ]
+                            'content' => $prompt,
+                        ],
                     ],
                     'temperature' => 0.7,
                 ]);
@@ -38,19 +38,20 @@ class AiEmailController extends Controller
             if ($response->successful()) {
                 $result = $response->json();
                 $emailContent = $result['choices'][0]['message']['content'];
-                
+
                 return response()->json([
                     'success' => true,
-                    'result' => trim($emailContent)
+                    'result' => trim($emailContent),
                 ]);
             }
 
             $errorDetail = $response->body();
-            return response()->json(['success' => false, 'message' => 'Ditolak Groq: ' . $errorDetail], 500);
+
+            return response()->json(['success' => false, 'message' => 'Ditolak Groq: '.$errorDetail], 500);
 
         } catch (\Exception $e) {
             // Menampilkan pesan error asli dari sistem
-            return response()->json(['success' => false, 'message' => 'Error: ' . $e->getMessage()], 500);
+            return response()->json(['success' => false, 'message' => 'Error: '.$e->getMessage()], 500);
         }
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
-use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
@@ -11,10 +10,10 @@ class CountryController extends Controller
     {
         // Mengambil semua data negara dan diurutkan sesuai abjad
         $countries = Country::orderBy('name', 'asc')->get();
-        
+
         return response()->json([
             'success' => true,
-            'data'    => $countries
+            'data' => $countries,
         ]);
     }
 }

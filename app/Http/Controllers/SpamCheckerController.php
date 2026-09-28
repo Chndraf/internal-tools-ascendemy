@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\SpamCheckerService;
+use Illuminate\Http\Request;
 
 class SpamCheckerController extends Controller
 {
